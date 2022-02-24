@@ -19,9 +19,9 @@ class UI {
         this.string.textContent = (weather.main.temp - 273.15).toFixed(1) + ' \xB0C';
         this.icon.setAttribute('src', iconUrl);
 
-        this.desc2.textContent = `Description: ${weather.weather[0].description}`;
-        this.humidity.textContent = `Relative Humidity: ${weather.main.humidity}`;
-        this.feelsLike.textContent = `Feels Like: ${weather.main.feels_like}`;
-        this.wind.textContent = `Wind Speed: ${weather.wind.speed}`;
+        this.desc2.innerHTML = `<strong>Description:</strong> ${weather.weather[0].description}`;
+        this.humidity.innerHTML = `<strong>Relative Humidity:</strong> ${weather.main.humidity}%`;
+        this.feelsLike.innerHTML = `<strong>Feels Like:</strong> ${(weather.main.feels_like - 273.15).toFixed(1)} \xB0C `;
+        this.wind.innerHTML = `<strong>Wind Speed:</strong> ${(weather.wind.speed * 3600/1000).toFixed(1)} km/h`;
     }
 }
